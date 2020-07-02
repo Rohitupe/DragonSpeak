@@ -1,0 +1,5 @@
+Problem : "ModuleNotFoundError: No module named 'pythoncom'"
+Solution : pip install pywin32
+
+Problem : "AttributeError: Could not find PyAudio; check installation"  = got this error in command() in sr.Microphone()
+Solution : 1 = pip install pipwin , 2 = pipwin install pyaudio
