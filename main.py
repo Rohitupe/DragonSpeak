@@ -1,4 +1,4 @@
-""" Dragon Commang Line Program """
+""" Dragon Command Line Program """
 import pyttsx3  # text to speech
 import speech_recognition as sr
 import datetime
@@ -6,14 +6,11 @@ import wikipedia
 import webbrowser
 import os
 import smtplib
-import getpass   # get user name of person using this pc
-userName = getpass.getuser()
 
-def say(text):
-    """ say function for all vioce message"""
-    engine = pyttsx3.init()
-    engine.say(text)
-    engine.runAndWait()
+# made import
+from SaySpeak import say,userName
+from OpenApplication import OpenApplication
+
 
 def speakAndwish(messsage):
     """Speak Function and Wish user with his name"""
@@ -27,22 +24,31 @@ def speakAndwish(messsage):
     else:
         say(f"Hello, {userName} Good Evening!")
 
-# take command from microphone
-def command():
-    """ try to speak something with your microphone to perform the action """
-    recognize = sr.Recognizer()
-    with sr.Microphone() as s:
-        say("listening ...")
-        audio = recognize.listen(s)
+speakAndwish("Initializing.....Dragon ........")
 
-    try:
-        say("Wait.. Recognizing the Command")
-        speak = recognize.recognize_google(audio,language='en-in')
-        print(f"Command : {speak}\n")
 
-    except:
-        say("you didn't speak anything")
-
-speakAndwish("Initializing.....")
-command()
+#
+# # take command from microphone
+# def command():
+#     """ try to speak something with your microphone to perform the action """
+#     recognize = sr.Recognizer()
+#     with sr.Microphone() as s:
+#         say("listening ...")
+#         audio = recognize.listen(s)
+#
+#     try:
+#         say("Wait.. Recognizing the Command")
+#         speak = recognize.recognize_google(audio,language='en-in')
+#         print(f"Command : {speak}\n")
+#     except:
+#         say("you didn't speak anything")
+#         speak = None
+#
+#     return speak
+#
+#
+# # to return the users command from the microphone
+# speak = command()
+#
+# # AI actions to be performed
 
