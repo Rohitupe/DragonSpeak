@@ -8,7 +8,7 @@ def OpenApplication(textCommand):
 
     # Open Notepad
     if ("open notepad") in textCommand.lower():
-        subprocess.call(r"C:\Windows\System32\notepad.exe")
+        subprocess.Popen(r"C:\Windows\System32\notepad.exe")
 
     elif ("close notepad") in textCommand.lower():
         errorNumber = os.system("TASKKILL /F /IM notepad.exe")
@@ -26,23 +26,31 @@ def OpenApplication(textCommand):
 
     # Open Calculator
     elif ("open calculator") in textCommand.lower():
-        subprocess.call(r"C:\Windows\System32\calc.exe")
+        subprocess.Popen(r"C:\Windows\System32\calc.exe")
 
     elif ("close calculator") in textCommand.lower():
         errorNumber = os.system("TASKKILL /F /IM Calculator.exe")
         if errorNumber == 128:
             say("Application Calculator is not Running")
 
-    # Open File manager
-    elif ("open filemanager") in textCommand.lower():
-        subprocess.call(r"C:\Windows\explorer.exe")
+    # Open Code
+    elif ("open code") in textCommand.lower():
+        subprocess.Popen(r"C:\Program Files (x86)\Microsoft VS Code\Code.exe")
 
-    elif ("close filemanager") in textCommand.lower():
-        errorNumber = os.system("TASKKILL /F /IM explorer.exe")
+    elif ("close code") in textCommand.lower():
+        errorNumber = os.system("TASKKILL /F /IM Code.exe")
         if errorNumber == 128:
-            say("Application filemanager is not Running")
+            say("Application code is not Running")
+
+    # Open Skype
+    elif ("open skype") in textCommand.lower():
+        subprocess.Popen(r"C:\Program Files\WindowsApps\Microsoft.SkypeApp_15.61.100.0_x86__kzf8qxf38zg5c\Skype\Skype.exe")
+    elif ("close skype") in textCommand.lower():
+        errorNumber = os.system("TASKKILL /F /IM Skype.exe")
+        if errorNumber == 128:
+            say("Application Skype is not running")
 
     else:
         say("Application is Not Installed")
 
-OpenApplication("Please close filemanager For me")
+# OpenApplication("Please close skype For me")
